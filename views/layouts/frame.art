@@ -1,0 +1,6 @@
+{{extend './basic'}}
+{{block 'body'}}
+    {{include '../component/header'}}
+    {{block 'content'}}{{/block}}
+    {{include '../component/footer'}}
+{{/block}}

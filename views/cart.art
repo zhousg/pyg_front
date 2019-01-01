@@ -1,0 +1,77 @@
+{{extend './layouts/frame'}}
+{{block 'head'}}
+<link rel="stylesheet" href="/assets/css/page-cart.css">
+{{/block}}
+{{block 'script'}}
+{{/block}}
+{{block 'content'}}
+<div class="py-container">
+    <div class="allgoods">
+        <br>
+        {{if !user}}
+        <div class="sui-msg msg-large msg-tips msg-block">
+            <div class="msg-con">
+                您还没有登录！登录后购物车的商品将保存到您账号中
+                <a href="/login?returnUrl=/cart" class="sui-btn btn-middle btn-danger">立即登录</a>
+                <button type="button" data-dismiss="msgs" class="sui-close">×</button>
+            </div>
+            <s class="msg-icon"></s>
+        </div>
+        {{/if}}
+        <div class="cart-main">
+            <div class="yui3-g cart-th">
+                <div class="yui3-u-1-2">商品</div>
+                <div class="yui3-u-1-8">单价（元）</div>
+                <div class="yui3-u-1-8">数量</div>
+                <div class="yui3-u-1-8">小计（元）</div>
+                <div class="yui3-u-1-8">操作</div>
+            </div>
+            <div class="cart-item-list">
+                <div class="cart-body">
+                    <div class="cart-list">
+                        {{each cartData.products item i}}
+                        <ul class="goods-list yui3-g">
+                            <li class="yui3-u-3-8">
+                                <div class="good-item">
+                                    <div class="item-img">
+                                        <img src="{{item.thumbnail}}">
+                                    </div>
+                                    <div class="item-msg">{{item.name}}</div>
+                                </div>
+                            </li>
+                            <li class="yui3-u-1-8">
+                            </li>
+                            <li class="yui3-u-1-8">
+                                <span class="price">{{item.price}}</span>
+                            </li>
+                            <li class="yui3-u-1-8">
+                                <a href="#" class="increment mins">-</a>
+                                <input autocomplete="off" type="text" value="{{item.amount}}" minnum="1" class="itxt">
+                                <a href="#" class="increment plus">+</a>
+                            </li>
+                            <li class="yui3-u-1-8">
+                                <span class="sum">{{item.total}}</span>
+                            </li>
+                            <li class="yui3-u-1-8">
+                                <a href="#none">删除</a>
+                            </li>
+                        </ul>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-tool">
+            <div class="money-box">
+                <div class="sumprice">
+                    <span><strong>{{cartData.totalAmount}}</strong> 件商品</span><br>
+                    <span><em>总价（不含运费）：</em><i class="summoney">¥{{cartData.totalPrice}}</i></span>
+                </div>
+                <div class="sumbtn">
+                    <a class="sum-btn" target="_blank" href="/pay/checkout">结算</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/block}}

@@ -1,0 +1,29 @@
+{
+  "name": "pyg",
+  "version": "1.0.0",
+  "description": "品优购前台项目",
+  "main": "app.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon app.js",
+    "start": "cross-env NODE_ENV=production node app.js"
+  },
+  "author": "zhousg",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.0",
+    "axios": "^0.18.0",
+    "cookie-parser": "^1.4.3",
+    "emailjs": "^2.2.0",
+    "express": "^4.16.4",
+    "express-art-template": "^1.0.1",
+    "express-favicon": "^2.0.1",
+    "express-mysql-session": "^2.1.0",
+    "express-session": "^1.15.6",
+    "http-error": "0.0.6",
+    "morgan": "^1.9.1",
+    "node-alipay-sdk": "^2.6.0",
+    "node-schedule": "^1.3.1",
+    "svg-captcha": "^1.3.12",
+    "youch": "^2.0.10"
+  }
+}

@@ -1,0 +1,132 @@
+<!--页面顶部-->
+<div id="nav-bottom">
+    <!--顶部-->
+    <div class="nav-top">
+        <div class="top">
+            <div class="py-container">
+                <div class="shortcut">
+                    <ul class="fl">
+                        <li class="f-item">品优购欢迎您！</li>
+                        <li class="f-item">
+                            {{if !user }}
+                            请 <a href="/login">登录</a> <a href="/register">免费注册</a>
+                            {{else}}
+                            【<a href="/member">{{user.username}}</a>】 <a href="/logout">退出</a>
+                            {{/if}}
+                        </li>
+                    </ul>
+                    <ul class="fr">
+                        <li class="f-item">
+                            <a href="/member/order">我的订单</a>
+                        </li>
+                        <li class="f-item space"></li>
+                        <li class="f-item">
+                            <a href="/member/index">我的品优购</a>
+                        </li>
+                        <li class="f-item space"></li>
+                        <li class="f-item">关注品优购</li>
+                        <li class="f-item space"></li>
+                        <li class="f-item">网站导航</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--头部-->
+        <div class="header">
+            <div class="py-container">
+                <div class="yui3-g Logo">
+                    <div class="yui3-u Left logoArea">
+                        <a class="logo-bd" title="品优购" href="/"></a>
+                    </div>
+                    <div class="yui3-u Center searchArea">
+                        <div class="search">
+                            <form action="/search" class="sui-form form-inline" autocomplete="off">
+                                <div class="input-append">
+                                    <input type="text" name="q" class="input-error input-xxlarge">
+                                    <button class="sui-btn btn-xlarge btn-danger">搜索</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="hotwords">
+                            <ul>
+                                <li class="f-item">品优购首发</li>
+                                <li class="f-item">亿元优惠</li>
+                                <li class="f-item">9.9元团购</li>
+                                <li class="f-item">每满99减30</li>
+                                <li class="f-item">亿元优惠</li>
+                                <li class="f-item">9.9元团购</li>
+                                <li class="f-item">办公用品</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="yui3-u Right shopArea">
+                        <div class="fr shopcar">
+                            <div class="show-shopcar">
+                                <span class="car"></span>
+                                <a class="sui-btn btn-default btn-xlarge" href="/cart">
+                                    <span>我的购物车</span>
+                                    <i class="shopnum">{{cartData.totalAmount}}</i>
+                                </a>
+                                <div class="clearfix shopcarlist">
+                                    <ul>
+                                        {{if cartData.products.length}}
+                                        {{each cartData.products item i}}
+                                        <li>{{item.name}}</li>
+                                        {{/each}}
+                                        {{else}}
+                                        <li>购物车是空的...</li>
+                                        {{/if}}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="yui3-g NavList">
+                    <div class="all-sorts-list">
+                        <div class="yui3-u Left all-sort">
+                            <h4>全部商品分类</h4>
+                        </div>
+                        <div class="sort">
+                            <div class="all-sort-list2">
+                                {{each categoryData item i}}
+                                <div class="item">
+                                    <h3><a href="/list/{{item.id}}">{{item.name}}</a></h3>
+                                    <div class="item-list clearfix">
+                                        <div class="subitem">
+                                            {{each item.children item i}}
+                                            <dl>
+                                                <dt><a href="/list/{{item.id}}">{{item.name}}</a></dt>
+                                                <dd>
+                                                    {{each item.children item i}}
+                                                    <em><a href="/list/{{item.id}}">{{item.name}}</a></em>
+                                                    {{/each}}
+                                                </dd>
+                                            </dl>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="yui3-u Center navArea">
+                        <ul class="nav">
+                            <li class="f-item">服装城</li>
+                            <li class="f-item">美妆馆</li>
+                            <li class="f-item">品优超市</li>
+                            <li class="f-item">全球购</li>
+                            <li class="f-item">闪购</li>
+                            <li class="f-item">团购</li>
+                            <li class="f-item">有趣</li>
+                            <li class="f-item">秒杀</li>
+                        </ul>
+                    </div>
+                    <div class="yui3-u Right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
