@@ -38,37 +38,46 @@
 
 
 
-![newshop-arch](https://user-images.githubusercontent.com/6166576/43821572-215546ce-9b1c-11e8-8705-14cf0c7269df.png)
+![1546342547593](docs/media/1546342547593.png)
 
 
 
 # 项目起步
 
-### 代码管理
+### 代码管理（重要）
 
-1. 建了自己的仓库 在github平台。
-2. 每次代码
+1.  能够建了自己的分享仓库 在github平台。
 
+2.  能够推送代码 到自己的仓库。
 
+3.  能够通过分支来管理项目的版本迭代。
+
+4.  能够拉取开源项目的代码到本地。
+
+   ***具体参考 git.md 文档。***
 
 ### 运行环境
 
-环境搭建
-set global max_allowed_packet=1024*1024*16; 
+1. 安装Node.js运行环境，安装mysql数据库。
+2. 数据可以依赖外网服务器接口，但是考虑网络问题，和调试问题。
+3. 本地启动接口服务器
+   1. 初始化本地数据库 ，执行 newshop.sql 脚本
+   2. 注意如果出现执行失败可能要修改数据库最大允许内存 
+   3. `set global max_allowed_packet=1024*1024*16; `
+   4. `..\pygProject\server\newshop\config\database.php ` 修改数据连接
+   5. 运行 start.cmd 文件即可启动
 
-###相关文档
+###相关链接
 
-axios  
-https://www.kancloud.cn/yunye/axios/234845
+- axios  https://www.kancloud.cn/yunye/axios/234845
 
-语法风格   
-https://standardjs.com/readme-zhcn.html
+- 语法风格   https://standardjs.com/readme-zhcn.html
 
-接口文档  
-https://documenter.getpostman.com/view/130308/newshop/RVncfwwX
+- 接口文档  https://documenter.getpostman.com/view/130308/newshop/RVncfwwX
 
-支付流程  
-https://open.alipay.com/platform/home.htm
+- 支付流程  https://open.alipay.com/platform/home.htm
+
+- postman https://www.getpostman.com/apps
 
 # 业务场景
 
