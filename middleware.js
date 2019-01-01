@@ -83,7 +83,7 @@ const autoLogin = (req, res, next) => {
   //4.2 拿到用户信息后 比对cookie中的密码是否一致
   user.getUser(uid).then(userInfo => {
     if (!(userInfo && userInfo.id)) throw new Error('用户信息获取失败')
-    if (pwd !== userInfo.pwd) throw new Error('密码比对失败')
+    if (pwd !== userInfo.password) throw new Error('密码比对失败')
     req.session.user = userInfo
     res.locals.user = userInfo
     next()
